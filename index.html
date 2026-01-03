@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tailwind Toolbar Dropdown</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .toolbar-btn { font-family: ui-sans-serif, system-ui, sans-serif; }
+    .focus-ring:focus { outline: 2px solid rgba(59,130,246,.5); outline-offset: 2px; }
+    .swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,.1); display: inline-block; }
+    .swatch-ring { box-shadow: 0 0 0 2px rgba(0,0,0,.05) inset; }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen p-10">
+  <div id="main-menu" class="top-full mt-2 z-10">
+    <div class="w-full max-w-[960px] bg-white rounded-lg shadow-xl border border-gray-300 p-1 flex items-center flex-wrap gap-1">
+
+      <!-- Font family -->
+      <div class="relative">
+        <button title="Font Type" type="button" data-target="font-family-menu"
+          class="dropdown-toggle toolbar-btn w-36 text-sm flex justify-between items-center px-2.5 py-1.5 rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="font-family-menu">
+          <span class="dropdown-value">Aptos (Body)</span>
+          <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+        <div id="font-family-menu" class="dropdown-menu hidden absolute top-full mt-1 w-48 bg-white border border-gray-300 rounded-lg shadow-xl z-20 divide-y divide-gray-100" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">Aptos (Body)</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">Times New Roman</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">Calibri</a>
+        </div>
+      </div>
+
+      <!-- Font size -->
+      <div class="relative">
+        <button type="button" title="Font Size" data-target="font-size-menu"
+          class="dropdown-toggle toolbar-btn w-16 text-sm flex justify-between items-center px-2.5 py-1.5 rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="font-size-menu">
+          <span class="dropdown-value">12</span>
+          <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+        <div id="font-size-menu" class="dropdown-menu hidden absolute top-full mt-1 w-24 bg-white border border-gray-300 rounded-lg shadow-xl z-20 divide-y divide-gray-100 max-h-60 overflow-y-auto" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">8</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">9</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">10</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">11</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">12</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">14</a>
+        </div>
+      </div>
+
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+      <!-- Bold / Italic / Underline (dropdown) / Strikethrough -->
+      <button type="button" title="Bold" class="simple-toolbar-btn toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 text-base font-bold focus-ring" aria-label="Bold">B</button>
+      <button type="button" title="Italics" class="simple-toolbar-btn toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 text-base italic focus-ring" aria-label="Italic">I</button>
+
+      <div class="relative">
+        <button type="button" title="Underline" data-target="underline-menu"
+          class="dropdown-toggle toolbar-btn w-8 h-8 text-base grid place-items-center rounded-md hover:bg-gray-100 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="underline-menu" aria-label="Underline options">
+          <span class="underline">U</span>
+        </button>
+        <div id="underline-menu" class="dropdown-menu hidden absolute top-full mt-1 w-40 bg-white border border-gray-300 rounded-lg shadow-xl z-20" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1">Single</a>
+          <a href="#" class="dropdown-item block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem" tabindex="-1">Double</a>
+        </div>
+      </div>
+
+      <button type="button" title="Strikethrough" class="simple-toolbar-btn toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 text-base line-through focus-ring" aria-label="Strikethrough">ab</button>
+
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+      <!-- Section -->
+      <button type="button" title="Section" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Block quote">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <path d="M9 3v18M15 3v18"/>
+        </svg>
+      </button>
+
+      <!-- Subsection -->
+      <button type="button" title="Subsection" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Block quote">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="5" width="12" height="14" rx="1" ry="1"/>
+          <path d="M11 5v14M15 5v14"/>
+          <path d="M3 12h4"/>
+          <path d="M3 12l2-2M3 12l2 2"/>
+        </svg>
+      </button>
+
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+      <!-- Highlight (dropdown with color) -->
+      <div class="relative">
+        <button type="button" title="Highlight" data-target="highlight-menu" class="dropdown-toggle toolbar-btn h-8 px-2 flex items-center justify-between gap-2 rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-haspopup="true" aria-expanded="false" aria-controls="highlight-menu" aria-label="Highlight color" data-color-kind="highlight">
+          <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1920 1920"
+              fill="currentColor"
+              aria-hidden="true"
+              class="w-5 h-5">
+            <path fill-rule="evenodd" d="M1809.888 1806.674V1920H110v-113.326h1699.888Zm-1332.35-415.453 143.471 95.647-60.29 93.154H326.816l150.724-188.8ZM616.817 921.94l389.954 260.196-32.75 51.45c-15.753 27.085-46.011 41.364-75.25 36.038-72.754-12.92-146.19 18.359-187.667 80.801l-27.991 41.704-138.825-92.7 27.879-41.818c41.59-62.33 42.497-142.564 2.266-204.213-16.205-24.932-14.506-58.476 3.627-82.388l38.757-49.07Zm678.595-803.027L1537.93 280.74c16.092 10.766 20.399 33.318 11.106 49.523L1067.627 1086.6 687.419 832.864l556.77-703.187c12.466-16.66 35.018-21.532 51.223-10.766ZM312.65 1693.348h309.833l123.186-190.727 59.722-89.414c16.433-24.592 45.104-37.398 72.642-32.185 76.495 14.28 154.123-22.098 192.654-88.394l575.242-903.547c40.344-69.696 20.626-158.657-44.99-202.627l-242.744-161.83c-65.616-43.63-155.37-27.764-203.533 35.585L488.53 901.654c-47.71 62.782-51.336 148.683-8.953 213.506 15.3 23.685 14.62 54.963-1.7 79.668l-58.249 87.26-190.16 238.438c-25.84 32.298-30.712 75.475-12.807 112.646 17.906 37.058 54.737 60.176 95.987 60.176Z"/>
+          </svg>
+        </button>
+        <div id="highlight-menu" class="dropdown-menu hidden absolute top-full mt-1 w-64 bg-white border border-gray-300 rounded-lg shadow-xl z-20 p-3" role="menu" tabindex="-1">
+          <div class="text-xs text-gray-500 mb-2">Pick a highlight color</div>
+          <div class="grid grid-cols-8 gap-2 mb-3">
+            <!-- preset swatches -->
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#fff59d" style="background:#fff59d" aria-label="Yellow"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#ffd166" style="background:#ffd166" aria-label="Orange"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#fca5a5" style="background:#fca5a5" aria-label="Red"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#c4b5fd" style="background:#c4b5fd" aria-label="Purple"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#93c5fd" style="background:#93c5fd" aria-label="Blue"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#6ee7b7" style="background:#6ee7b7" aria-label="Green"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#fde68a" style="background:#fde68a" aria-label="Gold"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#e5e7eb" style="background:#e5e7eb" aria-label="Gray"></button>
+          </div>
+          <label class="flex items-center gap-2 text-sm">
+            <span>Custom</span>
+            <input type="color" class="dropdown-item border rounded p-0 w-8 h-8" value="#fff59d" data-color="__from_input__" />
+          </label>
+        </div>
+      </div>
+
+      <!-- Text color (dropdown with color) -->
+      <div class="relative">
+        <button type="button" title="Text Color" data-target="textcolor-menu" class="dropdown-toggle toolbar-btn h-8 px-2 flex items-center justify-between gap-2 rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-haspopup="true" aria-expanded="false" aria-controls="textcolor-menu" aria-label="Text color" data-color-kind="text">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7V4h16v3M9 20h6M12 4v16" />
+          </svg>
+        </button>
+        <div id="textcolor-menu" class="dropdown-menu hidden absolute top-full mt-1 w-64 bg-white border border-gray-300 rounded-lg shadow-xl z-20 p-3" role="menu" tabindex="-1">
+          <div class="text-xs text-gray-500 mb-2">Pick a text color</div>
+          <div class="grid grid-cols-8 gap-2 mb-3">
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#111827" style="background:#111827" aria-label="Black"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#6b7280" style="background:#6b7280" aria-label="Gray"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#ef4444" style="background:#ef4444" aria-label="Red"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#f59e0b" style="background:#f59e0b" aria-label="Amber"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#10b981" style="background:#10b981" aria-label="Emerald"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#3b82f6" style="background:#3b82f6" aria-label="Blue"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#8b5cf6" style="background:#8b5cf6" aria-label="Violet"></button>
+            <button class="dropdown-item w-6 h-6 rounded border" data-color="#f472b6" style="background:#f472b6" aria-label="Pink"></button>
+          </div>
+          <label class="flex items-center gap-2 text-sm">
+            <span>Custom</span>
+            <input type="color" class="dropdown-item border rounded p-0 w-8 h-8" value="#111827" data-color="__from_input__" />
+          </label>
+        </div>
+      </div>
+      
+      
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+      <!-- Alignment group (Left, Center, Right, Justify) -->
+      <div class="relative">
+        <button type="button" title="Alignment" data-target="align-menu"
+          class="dropdown-toggle toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="align-menu" aria-label="Text alignment options">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h14M4 10h10M4 14h14M4 18h10"/>
+          </svg>
+        </button>
+        
+        <div id="align-menu" class="dropdown-menu hidden absolute top-full mt-1 w-40 bg-white border border-gray-300 rounded-lg shadow-xl z-20" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h14M4 10h10M4 14h14M4 18h10"/>
+            </svg>
+            <span>Align Left</span>
+          </a>
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 6h14M7 10h10M5 14h14M7 18h10"/>
+            </svg>
+            <span>Align Center</span>
+          </a>
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6h14M10 10h10M6 14h14M10 18h10"/>
+            </svg>
+            <span>Align Right</span>
+          </a>
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+            </svg>
+            <span>Justify</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+      <!-- Bullets -->
+      <div class="relative">
+        <button type="button" title="Bullet Menu" data-target="bullet-menu"
+          class="dropdown-toggle toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="bullet-menu" aria-label="Bulleted list options">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12M8.25 17.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0z"/></svg>
+        </button>
+        
+        <div id="bullet-menu" class="dropdown-menu hidden absolute top-full mt-1 w-44 bg-white border border-gray-300 rounded-lg shadow-xl z-20" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12M8.25 17.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0z"/>
+            </svg>
+            <span>Bulleted List</span>
+          </a>
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12M8.25 17.25h12M3.75 6.75h2.5M3.75 12h2.5M3.75 17.25h2.5" />
+            </svg>
+            <span>Dashed List</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Numbered -->
+      <div class="relative">
+        <button type="button" title="Numbered Lists" data-target="number-menu"
+          class="dropdown-toggle toolbar-btn w-8 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="number-menu" aria-label="Numbered list options">
+            <svg fill="#000000" class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              
+              <g id="SVGRepo_iconCarrier" transform="translate(2.6, 0.4) scale(0.8)">
+                <path style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Sans" d="M23.5 5.01h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zm0 10h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zm0 10h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zM2.5 20C1.124 20 0 21.124 0 22.5c0 .717 1 .605 1 0 0-.84.66-1.5 1.5-1.5s1.5.66 1.5 1.5S3.34 24 2.5 24c-.66 0-.662 1 0 1 .84 0 1.5.66 1.5 1.5S3.34 28 2.5 28 1 27.34 1 26.5c0-.642-1-.675-1 0C0 27.876 1.124 29 2.5 29S5 27.876 5 26.5c0-.82-.386-1.544-1-2 .605-.457 1-1.186 1-2C5 21.124 3.876 20 2.5 20zm0-10C1.125 10 0 11.125 0 12.5c0 .688 1 .65 1 0 0-.834.666-1.5 1.5-1.5s1.5.666 1.5 1.5c0 .424-.17.785-.5 1.17-.33.383-.806.76-1.313 1.187C1.175 15.71 0 16.784 0 18.5c0 .262.238.5.5.5h4c.677 0 .652-1 0-1H1.156c.203-.96.82-1.69 1.657-2.393.493-.416 1.017-.824 1.437-1.313.42-.49.75-1.078.75-1.794C5 11.125 3.875 10 2.5 10zM2.156.138l-2 2c-.474.474.255 1.15.688.72L2 1.7v6.8c0 .73 1 .61 1 0v-8c0-.59-.628-.578-.844-.362z"></path>
+              </g>
+            </svg>
+        </button>
+        
+        <div id="number-menu" class="dropdown-menu hidden absolute top-full mt-1 w-48 bg-white border border-gray-300 rounded-lg shadow-xl z-20" role="menu" tabindex="-1">
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg fill="#000000" class="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(2.6, 0.4) scale(0.8)">
+                <path style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Sans" d="M23.5 5.01h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zm0 10h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zm0 10h-22c-.67 0-.65-1 0-1h22c.66 0 .67 1 0 1zM2.5 20C1.124 20 0 21.124 0 22.5c0 .717 1 .605 1 0 0-.84.66-1.5 1.5-1.5s1.5.66 1.5 1.5S3.34 24 2.5 24c-.66 0-.662 1 0 1 .84 0 1.5.66 1.5 1.5S3.34 28 2.5 28 1 27.34 1 26.5c0-.642-1-.675-1 0C0 27.876 1.124 29 2.5 29S5 27.876 5 26.5c0-.82-.386-1.544-1-2 .605-.457 1-1.186 1-2C5 21.124 3.876 20 2.5 20zm0-10C1.125 10 0 11.125 0 12.5c0 .688 1 .65 1 0 0-.834.666-1.5 1.5-1.5s1.5.666 1.5 1.5c0 .424-.17.785-.5 1.17-.33.383-.806.76-1.313 1.187C1.175 15.71 0 16.784 0 18.5c0 .262.238.5.5.5h4c.677 0 .652-1 0-1H1.156c.203-.96.82-1.69 1.657-2.393.493-.416 1.017-.824 1.437-1.313.42-.49.75-1.078.75-1.794C5 11.125 3.875 10 2.5 10zM2.156.138l-2 2c-.474.474.255 1.15.688.72L2 1.7v6.8c0 .73 1 .61 1 0v-8c0-.59-.628-.578-.844-.362z"></path>
+              </g>
+            </svg>
+            <span>Numbered List</span>
+          </a>
+          <a href="#" class="dropdown-item flex items-center gap-3 px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <text x="3" y="9" font-family="sans-serif" font-size="9" font-weight="bold">A.</text>
+              <text x="3" y="19" font-family="sans-serif" font-size="9" font-weight="bold">B.</text>
+              <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10 8h10M10 18h10" />
+            </svg>
+            <span>Alphabetical</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="h-6 w-px bg-gray-300 mx-1"></div>
+
+      <!-- Picture (dropdown with layout choices) -->
+      <div class="relative">
+        <button type="button" title="Pictures" data-target="picture-menu"
+          class="dropdown-toggle toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring"
+          aria-haspopup="true" aria-expanded="false" aria-controls="picture-menu" aria-label="Insert picture">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5">
+            <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.4"/>
+            <path d="M5 17l4-4 3 3 3.5-3 4.5 4"/>
+          </svg>
+        </button>
+        
+        <div id="picture-menu" class="dropdown-menu hidden absolute top-full mt-1 w-64 bg-white border border-gray-300 rounded-lg shadow-xl z-20" role="menu" tabindex="-1">
+          <div class="p-1">
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.4"/>
+                <path d="M5 17l4-4 3 3 3.5-3 4.5 4"/>
+              </svg>
+              <span>Picture (no caption)</span>
+            </a>
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="13" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.4"/>
+                <path d="M5 14l4-4 3 3 3.5-3 4.5 4"/>
+                <path d="M6 20h12" />
+              </svg>
+              <span>Picture with caption</span>
+            </a>
+            
+            <div class="border-t my-1"></div>
+            
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 4h14M5 7h10" />
+                <rect x="3" y="10" width="18" height="10" rx="2" ry="2"/>
+                <circle cx="7.5" cy="14.5" r="1"/>
+                <path d="M4 18l3-3 2.5 2.5 3-3 5.5 5"/>
+              </svg>
+              <span>Picture with text above</span>
+            </a>
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="10" rx="2" ry="2"/>
+                <circle cx="7.5" cy="8.5" r="1"/>
+                <path d="M4 12l3-3 2.5 2.5 3-3 5.5 5"/>
+                <path d="M5 17h14M5 20h10" />
+              </svg>
+              <span>Picture with text below</span>
+            </a>
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h6M4 9h6M4 12h6M4 15h6M4 18h6" />
+                <rect x="12" y="4" width="8" height="16" rx="2" ry="2"/>
+                <circle cx="16" cy="8" r="1"/>
+                <path d="M13 17l1.5-1.5 1.5 1.5 2-2 2 2"/>
+              </svg>
+              <span>Picture with text left</span>
+            </a>
+            <a href="#" class="dropdown-item flex items-center gap-3 px-3 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1">
+              <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="8" height="16" rx="2" ry="2"/>
+                <circle cx="8" cy="8" r="1"/>
+                <path d="M5 17l1.5-1.5 1.5 1.5 2-2 2 2"/>
+                <path d="M14 6h6M14 9h6M14 12h6M14 15h6M14 18h6" />
+              </svg>
+              <span>Picture with text right</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code block -->
+      <button type="button" title="Code Block" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Code block">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 16l-4-4 4-4M16 8l4 4-4 4M14 4l-4 16"/>
+        </svg>
+      </button>
+
+      <!-- Table -->
+      <button type="button" title="Table" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Insert table">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 5v14M16 5v14"/>
+        </svg>
+      </button>
+
+      <!-- Block quote -->
+      <button type="button" title="Block Quote" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Block quote">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            class="w-5 h-5">
+          <path d="M0.78 8.89c0-3.07 1.53-4.3 4.3-4.34L5.38 6C3.78 6.17 3 7 3.1 8.31H4.54V12H0.78zM6.68 8.89c0-3.07 1.53-4.3 4.3-4.34L11.28 6C9.68 6.17 8.89 7 9 8.31h1.44V12H6.68zM16.94 15.11c0 3.07-1.53 4.3-4.3 4.34L12.35 18c1.6-.16 2.39-1 2.28-2.3H13.18V12h3.76zM22.84 15.11c0 3.07-1.53 4.3-4.3 4.34L18.24 18c1.6-.16 2.39-1 2.28-2.3H19.08V12h3.76z"/>
+        </svg>
+      </button>
+
+      <!-- Link -->
+      <button type="button" title="Link" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Insert link">
+        <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            class="w-5 h-5">
+          <path d="M15.2 3.35c1.67-1.68 4.25-1.81 5.75-.3 1.5 1.51 1.37 4.1-.3 5.78l-2.43 2.43"/>
+          <path d="M10.05 14c-1.5-1.51-1.37-4.1.3-5.78l2.15-2.16"/>
+          <path d="M13.95 10c1.51 1.51 1.37 4.1-.3 5.78l-2.42 2.43-2.43 2.43c-1.67 1.68-4.25 1.81-5.75.3-1.5-1.51-1.37-4.1.3-5.78l2.43-2.43"/>
+        </svg>
+      </button>
+
+      <!-- Attachment -->
+      <button type="button" title="Attachment" class="toolbar-btn w-9 h-8 grid place-items-center rounded-md hover:bg-gray-100 border border-gray-300 focus-ring" aria-label="Attach file">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01" />
+        </svg>
+      </button>
+
+      
+
+    </div>
+  </div>
+
+  <!-- Behavior -->
+  <script>
+    (function () {
+      const HIDDEN = 'hidden';
+
+      function getMenu(btn){ return document.getElementById(btn?.dataset?.target || ''); }
+      function getToggleForMenu(menu){ return menu?.parentElement?.querySelector('.dropdown-toggle'); }
+
+      function closeAll(except){
+        document.querySelectorAll('.dropdown-menu').forEach(m => {
+          if (m !== except) {
+            m.classList.add(HIDDEN);
+            const b = getToggleForMenu(m);
+            if (b) b.setAttribute('aria-expanded','false');
+          }
+        });
+      }
+
+      function openMenu(btn, menu){
+        closeAll(menu);
+        menu.classList.remove(HIDDEN);
+        btn.setAttribute('aria-expanded','true');
+        const first = menu.querySelector('.dropdown-item');
+        if (first && first.focus) first.focus({preventScroll:true});
+      }
+
+      function toggleMenu(btn){
+        const menu = getMenu(btn);
+        if (!menu) return;
+        if (menu.classList.contains(HIDDEN)) openMenu(btn, menu);
+        else {
+          menu.classList.add(HIDDEN);
+          btn.setAttribute('aria-expanded','false');
+        }
+      }
+
+      // Click logic
+      document.addEventListener('click', (e) => {
+        const toggle = e.target.closest('.dropdown-toggle');
+        const item = e.target.closest('.dropdown-item');
+        if (toggle){ e.preventDefault(); toggleMenu(toggle); return; }
+
+        if (item){
+          e.preventDefault();
+          const menu = item.closest('.dropdown-menu');
+          const btn = getToggleForMenu(menu);
+          const label = btn?.querySelector('.dropdown-value');
+
+          // Standard label update (font family/size)
+          if (label && item.textContent.trim()) label.textContent = item.textContent.trim();
+
+          // Color pickers (highlight/text)
+          const colorKind = btn?.dataset?.colorKind;
+          if (colorKind){
+            let color = item.dataset.color;
+            if (color === '__from_input__') color = item.value; // <input type=color>
+            if (color){
+              const sw = btn.querySelector('.swatch');
+              if (sw) sw.style.background = color;
+              btn.dataset.selectedColor = color;
+            }
+          }
+
+          // Close + return focus
+          if (menu){
+            menu.classList.add(HIDDEN);
+            if (btn){
+              btn.setAttribute('aria-expanded','false');
+              btn.focus({preventScroll:true});
+            }
+          }
+          return;
+        }
+
+        // Outside click
+        if (!e.target.closest('.relative')) closeAll(null);
+      });
+
+      // Key handling
+      document.addEventListener('keydown', (e) => {
+        const openMenu = document.querySelector('.dropdown-menu:not(.hidden)');
+        if (e.key === 'Escape' && openMenu){
+          const btn = getToggleForMenu(openMenu);
+          openMenu.classList.add(HIDDEN);
+          if (btn){ btn.setAttribute('aria-expanded','false'); btn.focus({preventScroll:true}); }
+        }
+
+        if (openMenu && (e.key === 'ArrowDown' || e.key === 'ArrowUp')){
+          e.preventDefault();
+          const items = Array.from(openMenu.querySelectorAll('.dropdown-item'));
+          if (!items.length) return;
+          const active = document.activeElement;
+          let idx = Math.max(0, items.indexOf(active));
+          idx = e.key === 'ArrowDown' ? (idx + 1) % items.length : (idx - 1 + items.length) % items.length;
+          items[idx].focus({preventScroll:true});
+        }
+
+        // Open with Enter/Space on focused toggle
+        const asToggle = document.activeElement?.classList?.contains('dropdown-toggle');
+        if (asToggle && (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown')){
+          e.preventDefault();
+          toggleMenu(document.activeElement);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
