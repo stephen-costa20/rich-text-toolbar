@@ -8,7 +8,7 @@ This project focuses on **UI clarity, interaction design, and accessibility**, r
 
 ## Preview
 
-![Toolbar preview](assets/toolbar-preview.png)
+![Toolbar preview](assets/toolbar-preview.gif)
 
 ---
 
