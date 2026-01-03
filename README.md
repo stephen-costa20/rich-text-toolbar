@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="https://github.com/stephen-costa20/rich-text-toolbar"><img src="https://img.shields.io/badge/View%20on%20GitHub-%20-blue?style=for-the-badge" alt="View on GitHub"></a>
+  <a href="https://github.com/stephen-costa20/rich-text-toolbar/blob/main/LICENSE"><img src="https://img.shields.io/github/license/stephen-costa20/rich-text-toolbar?style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/stephen-costa20/rich-text-toolbar/commits/main"><img src="https://img.shields.io/github/last-commit/stephen-costa20/rich-text-toolbar?style=for-the-badge" alt="Last Commit"></a>
+  <img src="https://img.shields.io/badge/Built%20With-JavaScript-yellow?style=for-the-badge" alt="Built with JavaScript">
+</p>
+
+
 # Rich Text Toolbar (Tailwind + Vanilla JS)
 
 A modular, dropdown-based rich text toolbar UI inspired by modern document editors (Word / Google Docs–style), built with **Tailwind CSS** and **plain JavaScript** — no frameworks required.
