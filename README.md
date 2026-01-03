@@ -4,13 +4,13 @@ A modular, dropdown-based rich text toolbar UI inspired by modern document edito
 
 This project focuses on **UI clarity, interaction design, and accessibility**, rather than editor engine logic.
 
----
+
 
 ## Preview
 
 ![Toolbar preview](assets/toolbar-preview.gif)
 
----
+
 
 ## Overview
 
@@ -22,7 +22,7 @@ This toolbar is designed as a **reusable UI layer** for rich-text or document-st
 
 The intent is to separate **editor UI** from **editor behavior**, making it suitable for integration with custom editors, contenteditable implementations, or backend-driven document systems.
 
----
+
 
 ## Features
 
@@ -36,7 +36,7 @@ The intent is to separate **editor UI** from **editor behavior**, making it suit
 - Keyboard navigation & focus management
 - Accessible ARIA attributes for dropdown menus
 
----
+
 
 ## Tech Stack
 
@@ -46,7 +46,7 @@ The intent is to separate **editor UI** from **editor behavior**, making it suit
 
 No build tools. No dependencies. Drop-in ready.
 
----
+
 
 ## Usage
 
