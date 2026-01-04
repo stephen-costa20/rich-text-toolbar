@@ -6,7 +6,7 @@
 </p>
 
 
-# ⭐ Rich Text Toolbar (Tailwind + Vanilla JS)
+# ⭐ EditorEdge - Rich Text Toolbar (Tailwind + Vanilla JS)
 
 A modular, dropdown-based rich text toolbar UI inspired by modern document editors (Word / Google Docs–style), built with **Tailwind CSS** and **plain JavaScript** — no frameworks required.
 
