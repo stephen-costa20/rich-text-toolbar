@@ -60,4 +60,5 @@ No build tools. No dependencies. Drop-in ready.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/rich-text-toolbar.git
+   git clone https://github.com/stephen-costa20/EditorEdge.git
+   ```
